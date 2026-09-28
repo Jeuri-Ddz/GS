@@ -1,14 +1,15 @@
-<Tiendas>
+<?xml version="1.0" encoding="UTF-8"?>
+  
     <Tienda>
-        <nom> SpanwCamp</nom>
-        <descripcio>
+        <nombre>SpawnCamp</nombre>
+        <descripcion>
             <![CDATA[ SpawnCamp es el refugio definitivo para los verdaderos amantes del píxel.
-            Nos especializamos en la compra, venta &amp; restauración de consolas clásicas, 
+            Nos especializamos en la compra, venta & restauración de consolas clásicas, 
             cartuchos descatalogados y accesorios retro desde la era de los 8 y 16 bits hasta los años 2000. 
             Preserva la historia del videojuego con nosotros  revive la nostalgia en su estado más puro.]]>
-        </descripcio>
-        <moneda>euro</moneda>
-        <fecha_actualizacion_catalogo>08-09-2025</fecha_actualizacion_catalogo>
+        </descripcion>
+        <monedas moneda="EUR"/>
+        <fecha_actualizacion>2025-09-08</fecha_actualizacion>
         
         <Catalogo>
             <juego id="RET-001">
@@ -16,11 +17,11 @@
                 <generos>
                     <genero>RPG</genero>
                     <genero>Aventura</genero>
-                <generos>
+                </generos>
                 <plataformas>
                     <plataforma>SNES</plataforma>
                 </plataformas>
-                <precio>35.99<precio>
+                <precio>35.99</precio>
                 <valoracion>9.1</valoracion>
                 <stock>11</stock>
                 <fecha>1995-03-11</fecha>
@@ -33,12 +34,12 @@
                     <genero>Acción</genero>
                     <genero>Aventura</genero>
                     <genero>Metroidvania</genero>
-                <generos>
+                </generos>
                 <plataformas>
                     <plataforma>PlayStation</plataforma>
                     <plataforma>Saturn</plataforma>
                 </plataformas>
-                <precio>41.90<precio>
+                <precio>41.90</precio>
                 <valoracion>5.5</valoracion>
                 <stock>7</stock>
                 <fecha>1997-03-20</fecha>
@@ -49,11 +50,11 @@
                 <titulo>Super Mario World</titulo>
                 <generos>
                     <genero>Plataformas</genero>
-                <generos>
+                </generos>
                 <plataformas>
                     <plataforma>SNES</plataforma>
                 </plataformas>
-                <precio>45.50<precio>
+                <precio>45.50</precio>
                 <valoracion>9.6</valoracion>
                 <stock>8</stock>
                 <fecha>1990-11-21</fecha>
@@ -65,11 +66,11 @@
                 <generos>
                     <genero>Aventura</genero>
                     <genero>Acción</genero> 
-                <generos>
+                </generos>
                 <plataformas>
                     <plataforma>Nintendo 64</plataforma>
                 </plataformas>
-                <precio>59.00<precio>
+                <precio>59.00</precio>
                 <valoracion>9.2</valoracion>
                 <stock>12</stock>
                 <fecha>1998-11-21</fecha>
@@ -80,15 +81,15 @@
                 <titulo>Street Fighter II Turbo</titulo>
                 <generos>
                     <genero>Lucha</genero>
-                <generos>
+                </generos>
                 <plataformas>
                     <plataforma>SNES</plataforma>
                     <plataforma> Mega Drive</plataforma>
-                    <plataforma>Arcade<plataforma>
+                    <plataforma>Arcade</plataforma>
                 </plataformas>
-                <precio>39.00<precio>
-                <stock>5</stock>
+                <precio>39.00</precio>
                 <valoracion>9.9</valoracion>
+                <stock>5</stock>
                 <fecha>1993-07-11</fecha>
                 <descripcion>Velocidad endiablada y los doce luchadores originales reunidos en el cartucho rey de los salones recreativos.</descripcion>
             </juego>
@@ -98,13 +99,13 @@
                 <generos>
                     <genero>Terror</genero>
                     <genero>Puzle</genero>
-                <generos>
+                </generos>
                 <plataformas>
                     <plataforma>PlayStation</plataforma>
                 </plataformas>
-                <precio>99.00<precio>
-                <stock>º12</stock>
+                <precio>99.00</precio>
                 <valoracion>9.3</valoracion>
+                <stock>12</stock>
                 <fecha>1999-01-31</fecha>
                 <descripcion>El inicio de la pesadilla psicológica envuelta en niebla creada por el Team Silent. Unidad de coleccionista en excelente conservación.</descripcion>
             </juego>
@@ -114,22 +115,35 @@
                 <generos>
                     <genero>Acción</genero>
                     <genero>Shooter</genero>
-                <generos>
+                </generos>
                 <plataformas>
                     <plataforma>Neo Geo</plataforma>
                     <plataforma>Saturn</plataforma>
-                    <plataforma>PlayStation<plataforma>
-                    <plataforma>Arcade<plataforma>
+                    <plataforma>PlayStation</plataforma>
+                    <plataforma>Arcade</plataforma>
                 </plataformas>
-                <precio>39.00<precio>
-                <stock>0</stock>
+                <precio>39.00</precio>
                 <valoracion>7.7</valoracion>
+                <stock>0</stock>
                 <fecha>1996-04-18</fecha>
                 <descripcion>Caos de disparos en 2D y animaciones pixel art hechas completamente a mano. Actualmente agotado, disponible bajo reserva.</descripcion>
             </juego>
-       
+            
+            <juego id="RET-008">
+                <titulo>Pokémon Edición Roja</titulo>
+                <generos>
+                    <genero>RPG</genero>
+                </generos>
+                <plataformas>
+                    <plataforma>Game Boy</plataforma>
+                </plataformas>
+                <precio>68.99</precio>
+                <valoracion>9.4</valoracion>
+                <stock>6</stock>
+                <fecha>1996-02-27</fecha>
+                <descripcion>El fenómeno mundial donde empezó todo el viaje por la región de Kanto. Cartucho gris con pegatina original intacta.</descripcion>
+            </juego>
         
         </Catalogo>
 
-    </Tienda>
-</Tiendas>
+</Tienda>
