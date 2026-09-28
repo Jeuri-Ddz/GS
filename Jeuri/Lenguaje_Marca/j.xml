@@ -1,0 +1,104 @@
+<comanda>
+    <dades>        
+        <numero>13</numero> 
+        <data> 2011-09-28</data>
+        <client>
+            <nom>raul  </nom>
+            <poblacio>girona<poblacio>
+        </client>
+    </dades>
+
+    <articles>
+        <article>
+            <codi>1249823</codi>
+            <descripcio>Pendrive 4gb</descripcio>
+         </article>
+
+          <article>
+            <codi>111111</codi>
+            <descripcio>raton</descripcio>
+         </article>
+    </articles>
+
+
+
+</comanda>
+
+
+<movie>
+    <header>
+        <title>pierrot le FOu</title>
+        <title lang="en">pierrot goes wild</title>
+        <lang>French</lang>
+        <year>1234</year>
+        <genre>Drama</genre>
+    </header>
+
+    <dir> Jean-Luc Godard</dir>
+    <photos>Raoul Coutard</photos>
+    <tech>
+        <color>B&amp;W</color>
+        <format> 35mm</format>
+        <time>110mn</time>
+    </tech>
+
+    <actors>
+    
+        <actor>anna</actor>
+        <actor>daniel</actor>
+        <actor>pedro</actor>
+    </actors>
+
+    <desc>
+     ascaiaicnasioncasncansicnascnaoicnaocnoisa
+    </desc>
+
+</movie>
+
+
+
+
+-Empresa
+----Empleat*
+-------Cognom
+-------Nom
+-------NUmEmpleat
+-------Correu
+-------Telefon
+-------Adreca
+----------Carrer
+----------Ciutat
+----------CP
+
+<?xml version="1.0" encoding="UTF-8" standalone=""?>
+<gos></gos>
+
+-------------------------------------------
+<?xml standalone="si"?>
+<?xml ?>
+
+-------------------------------------------
+<?xml version="1.0" encoding="UTF-8"?>
+<gos></gos>
+
+
+
+fitxer1.xml
+<persona>
+    <nom>Pere Garcia</nom>
+</persona>
+<gos>
+    <nom>Rufy</nom>
+</gos>
+
+--------------------------------------
+fitxer2.xml
+
+<persona>
+    <nom>Pere</nom>
+    <cognom> Pérez </cognom>
+</persona>
+<persona>
+    <cognom2>Garcia</cognom2>
+    <edat>22</edat>
+</persona>

@@ -1,0 +1,97 @@
+Aquí tienes un borrador listo para usar y probar en tu herramienta de IA conversacional.
+
+---
+
+# Documento SKILL: Code Review Estándar
+
+### (a) Nombre
+
+`code-review-clean-code`
+
+### (b) Cuándo se debe utilizar
+
+Utiliza esta habilidad siempre que el usuario te proporcione un fragmento de código, un script o una función para revisar, refactorizar o evaluar antes de integrar en un proyecto.
+
+### (c) Instrucciones paso a paso de los criterios a revisar
+
+Ejecuta la revisión analizando el código línea por línea y evaluando rigurosamente cada uno de los siguientes puntos:
+
+1. **Nombres de variables y funciones:**
+* Las variables deben ser sustantivos claros y descriptivos. Evitar abreviaturas ambiguas o nombres de una sola letra (salvo índices en bucles pequeños como `i`, `j`).
+* Las funciones deben usar verbos que expresen la acción que realizan (ej. `calcularTotal()`, `obtenerUsuario()`).
+* Cumplimiento de la convención correspondiente al lenguaje (`camelCase`, `snake_case`, `PascalCase`).
+
+
+2. **Tamaño máximo de funciones:**
+* Ninguna función debe superar las **20-25 líneas de código** (excluyendo comentarios vacíos o imports).
+* Cada función debe cumplir con el Principio de Responsabilidad Única (SRP): hacer una sola cosa y hacerlo bien.
+
+
+3. **Gestión de errores y excepciones:**
+* Comprobar que las llamadas a APIs, operaciones de E/S o conversiones de tipo estén protegidas con bloques de control de errores (`try/catch` o equivalente).
+* Prohibir bloques `catch` vacíos o que solo impriman el error en consola sin gestionarlo.
+* Verificar que se retornen códigos de estado o mensajes claros al usuario/sistema en caso de error.
+
+
+4. **Comentarios y documentación:**
+* Validar que los comentarios expliquen el **porqué** de una decisión compleja y no el **qué** (el código mismo debe explicarse).
+* Detectar y reportar fragmentos de código comentado (código muerto) que deban eliminarse.
+
+
+5. **Duplicación de código (Principio DRY):**
+* Identificar bloques repetidos o lógica idéntica reescrita múltiples veces que deban abstraerse en una función auxiliar.
+
+
+6. **Convenciones del equipo y buenas prácticas:**
+* Comprobar indentación consistente y formato limpio.
+* Evitar "valores mágicos" (números o strings literales duros en el código); exigir el uso de constantes descriptivas.
+
+
+
+---
+
+### (d) Formato de salida fijo
+
+Devuelve **únicamente** la evaluación usando la siguiente plantilla estructurada, sin introducciones largas ni rodeos:
+
+#### 1. Resumen de la revisión
+
+* Breve diagnóstico general sobre la salud del código (1-2 frases).
+
+#### 2. Tabla de hallazgos
+
+| Gravedad | Línea(s) aprox. | Criterio | Problema detectado | Sugerencia de cambio |
+| --- | --- | --- | --- | --- |
+| **Crítico** | L12 | Gestión de errores | Bloque `catch` vacío | Capturar y propagar el error o registrarlo en log |
+| **Mejora** | L5-L35 | Tamaño | Función de 30 líneas | Separar en dos subfunciones |
+| **Estilo** | L3 | Nombres | Variable `x` no descriptiva | Renombrar a `totalProductos` |
+
+* **Definición de gravedades:**
+* **Crítico:** Errores no capturados, fallos de lógica o riesgos de estabilidad.
+* **Mejora:** Violaciones de limpieza de código, duplicación o funciones muy largas.
+* **Estilo:** Nombres poco claros, inconsistencias de formato o código muerto.
+
+
+
+#### 3. Propuesta de código refactorizado
+
+```<lenguaje>
+// Muestra el código corregido aplicando las recomendaciones anteriores
+
+```
+
+---
+
+### (e) Límites
+
+* **Nunca cambiar la lógica de negocio ni el comportamiento esperado del programa:** La refactorización debe preservar el mismo resultado final para las mismas entradas.
+* **Nunca cambiar las firmas públicas de las funciones principales:** No modifiques el nombre de la función ni sus parámetros si esto rompe la compatibilidad con otras partes del sistema.
+* **Respetar el lenguaje original:** No introduzcas librerías o dependencias externas adicionales a menos que se hayan incluido explícitamente en el código fuente.
+
+---
+
+### Cómo probar la skill
+
+1. **Prueba 1 (Con SKILL):** Copia todo el texto anterior y pégalo como primer mensaje en un chat de IA. En el siguiente mensaje, envía un fragmento de código (por ejemplo, una función en JavaScript o Python con variables tipo `a`, `b`, sin `try/catch` y de 30 líneas) y observa cómo aplica la plantilla estricta.
+2. **Prueba 2 (Sin SKILL):** En una ventana de chat nueva, pega el mismo fragmento de código y escribe simplemente: *«revisa este código»*.
+3. **Comparación:** Verás que sin la skill obtendrás comentarios generales y desorganizados, mientras que con la skill obtendrás un reporte clasificado por severidad, con números de línea y cumpliendo exactamente tus criterios.

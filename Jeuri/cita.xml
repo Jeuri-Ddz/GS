@@ -1,0 +1,100 @@
+<cita>
+
+    <paciente num="1" *>
+        <nombres></nombres>
+        <apellido>Gomez</apellido>
+        <fecha> 
+            <hora>09:30</hora>
+            <dia>15</dia>
+            <mes>10</mes> 
+            <ano>2026</ano>
+        </fecha>
+        <tel>612345678</tel>
+    </paciente_1>
+
+   
+</cita>
+
+--CITA
+---PACIENTE*
+-----NOMBRE
+-----APELLIDO
+-----FECHA
+-----------HORA
+-----------DIA--PACIENTE_1
+-----NOMBRE
+-----APELLIDO
+-----FECHA
+-----------HORA
+-----------DIA
+-----------MES
+-----------AÑO
+-----TELEFONO
+-----------MES
+
+<coches 
+    tipos="" 
+    marca="" 
+    ano="" 
+    Kilometraje="" 
+    precrio="" >
+</coches>
+<receptes>
+    <recepta tiempo="">
+        <nom>Patates Fregides</nom>
+        <fotografia>patates.png</fotografia>
+        <ingredients cantidad="">
+            <ingredient mesura="">Oli</ingredient>
+            <ingredient>Patates</ingredient>
+            <ingredient>Sal</ingredient>
+        </ingredients>
+        <preparació tiempo="">
+            <pas numero="1">Es posa l'oli a escalfar</pas>
+            <pas numero="2">Mentrestant pelen i tallen les pata
+            <pas numero="3">Quan l'oli estigui ben calent es po
+            <pas numero="4">Quan les patates agafin el color de
+            <pas numero="5">Opcionalment es poden posar les pat
+            <pas numero="6">Abans de servir s'espolvoreigen amb
+            
+        </preparació>
+    </recepta>
+    <recepta>
+        <nom>Arròs negre</nom>
+        <ingredients>
+            <ingredient>Sipions</ingredient>
+            <ingredient>Arròs</ingredient>
+            <ingredient>Ceba</ingredient>
+            <ingredient>Tomàquet</ingredient>
+            <ingredient>Alls</ingredient>
+            <ingredient>Pebrot tendre</ingredient>
+            <ingredient>Aigua</ingredient>
+            <ingredient>Oli</ingredient>
+            <ingredient>Sal</ingredient>
+        </ingredients>
+        <preparació>
+            <pas numero="1">Es pica bé la ceba i es posa a sofr
+                           a poc foc, remenant-la bastant sovi
+            <pas numero="2">Quan la ceba quedi ben fosca s'hi a
+                           també picat ben fi i una bona quant
+            <pas numero="3">S'hi dóna una remenada i es pica un
+                           Es va remenant per a què els sipion
+            <pas numero="4">Quan el sofregit està ben lligat, s
+            <pas numero="5">Després s'hi tira l'aigua bullint.<
+            <pas numero="6">Es deixa coure divuit minuts.</pas>
+            <pas numero="7">Quan faltin un parell de minuts, s'
+        </preparació>
+    </recepta>
+</receptes>
+
+
+
+-receptes
+----recepta*
+-------nom
+-------fotografia
+-------ingredientes
+-----------ingrediente*
+--------preparacion
+-----------pas*
+
+

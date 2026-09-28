@@ -1,0 +1,101 @@
+<Tiendas>
+    <Tienda>
+        <nom> SpanwCamp</nom>
+        <descripcio>
+            <![CDATA[ SpawnCamp es el refugio definitivo para los verdaderos amantes del píxel.
+            Nos especializamos en la compra, venta &amp; restauración de consolas clásicas, 
+            cartuchos descatalogados y accesorios retro desde la era de los 8 y 16 bits hasta los años 2000. 
+            Preserva la historia del videojuego con nosotros  revive la nostalgia en su estado más puro.]]>
+        </descripcio>
+        <moneda>euro</moneda>
+        <fecha_actualizacion_catalogo>08-09-2025</fecha_actualizacion_catalogo>
+        
+        <Catalogo>
+            <juego id="RET-001">
+                <titulo>Chrono Trigger</titulo>
+                <generos>
+                    <genero>RPG</genero>
+                    <genero>Aventura</genero>
+                <generos>
+                <plataformas>
+                    <plataforma>SNES</plataforma>
+                </plataformas>
+                <precio>35.99<precio>
+                <valoracion>9.1</valoracion>
+                <stock>11</stock>
+                <fecha>1995-03-11</fecha>
+                <descripcion>Legendario RPG sobre viajes en el tiempo con diseños de Akira Toriyama. Conserva la caja original y el manual en perfecto estado.</descripcion>
+            </juego>
+        
+            <juego id="RET-002">
+                <titulo>Castlevania: Symphony of the Night</titulo>
+                <generos>
+                    <genero>Acción</genero>
+                    <genero>Aventura</genero>
+                    <genero>Metroidvania</genero>
+                <generos>
+                <plataformas>
+                    <plataforma>PlayStation</plataforma>
+                    <plataforma>Saturn</plataforma>
+                </plataformas>
+                <precio>41.90<precio>
+                <valoracion>5.5</valoracion>
+                <stock>7</stock>
+                <fecha>1997-03-20</fecha>
+                <descripcion>La obra cumbre que definió un género entero dentro del castillo de Drácula. Edición Black Label completa en caja de metacrilato.</descripcion>
+            </juego>
+
+            <juego id="RET-003">
+                <titulo>Super Mario World</titulo>
+                <generos>
+                    <genero>Plataformas</genero>
+                <generos>
+                <plataformas>
+                    <plataforma>SNES</plataforma>
+                </plataformas>
+                <precio>45.50<precio>
+                <valoracion>9.6</valoracion>
+                <stock>8</stock>
+                <fecha>1990-11-21</fecha>
+                <descripcion>El debut de Yoshi y una obra maestra atemporal de los plataformas en 16 bits. Cartucho suelto revisado con contactos limpios.</descripcion>
+            </juego>
+        
+            <juego id="RET-004">
+                <titulo>The Legend of Zelda: Ocarina of Time</titulo>
+                <generos>
+                    <genero>Aventura</genero>
+                    <genero>Acción</genero> 
+                <generos>
+                <plataformas>
+                    <plataforma>Nintendo 64</plataforma>
+                </plataformas>
+                <precio>59.00<precio>
+                <valoracion>9.2</valoracion>
+                <stock>12</stock>
+                <fecha>1998-11-21</fecha>
+                <descripcion>La transición al 3D que cambió la industria de los videojuegos para siempre. Incluye pila de salvado recién cambiada.</descripcion>
+            </juego>
+                    
+            <juego id="RET-005">
+                <titulo>Street Fighter II Turbo</titulo>
+                <generos>
+                    <genero>Lucha</genero>
+                <generos>
+                <plataformas>
+                    <plataforma>SNES</plataforma>
+                    <plataforma> Mega Drive</plataforma>
+                    <plataforma>Arcade<plataforma>
+                </plataformas>
+                <precio>39.00<precio>
+                <stock>5</stock>
+                <valoracion>9.9</valoracion>
+                <fecha>1993-07-11</fecha>
+                <descripcion>Velocidad endiablada y los doce luchadores originales reunidos en el cartucho rey de los salones recreativos.</descripcion>
+            </juego>
+        
+        
+        
+        </Catalogo>
+
+    </Tienda>
+</Tiendas>
