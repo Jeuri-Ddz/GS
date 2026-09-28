@@ -93,7 +93,41 @@
                 <descripcion>Velocidad endiablada y los doce luchadores originales reunidos en el cartucho rey de los salones recreativos.</descripcion>
             </juego>
         
-        
+            <juego id="RET-006">
+                <titulo>Silent Hill</titulo>
+                <generos>
+                    <genero>Terror</genero>
+                    <genero>Puzle</genero>
+                <generos>
+                <plataformas>
+                    <plataforma>PlayStation</plataforma>
+                </plataformas>
+                <precio>99.00<precio>
+                <stock>º12</stock>
+                <valoracion>9.3</valoracion>
+                <fecha>1999-01-31</fecha>
+                <descripcion>El inicio de la pesadilla psicológica envuelta en niebla creada por el Team Silent. Unidad de coleccionista en excelente conservación.</descripcion>
+            </juego>
+
+            <juego id="RET-007">
+                <titulo>Metal Slug: Super Vehicle-001</titulo>
+                <generos>
+                    <genero>Acción</genero>
+                    <genero>Shooter</genero>
+                <generos>
+                <plataformas>
+                    <plataforma>Neo Geo</plataforma>
+                    <plataforma>Saturn</plataforma>
+                    <plataforma>PlayStation<plataforma>
+                    <plataforma>Arcade<plataforma>
+                </plataformas>
+                <precio>39.00<precio>
+                <stock>0</stock>
+                <valoracion>7.7</valoracion>
+                <fecha>1996-04-18</fecha>
+                <descripcion>Caos de disparos en 2D y animaciones pixel art hechas completamente a mano. Actualmente agotado, disponible bajo reserva.</descripcion>
+            </juego>
+       
         
         </Catalogo>
 
