@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Snake — Prototipo v0.1</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg1:#1f2a44;--bg2:#3b2f63;--accent:#ffb347;--accent-dark:#e8942a;--snake:#4674e9}
+body{font-family:'Trebuchet MS',Arial,sans-serif;color:#fff;min-height:100vh;
+  background:linear-gradient(135deg,var(--bg1),var(--bg2));
+  display:flex;align-items:center;justify-content:center;padding:16px}
+.screen{display:none;flex-direction:column;align-items:center;width:100%;max-width:640px}
+.screen.active{display:flex}
+
+/* ── Pantalla de inicio (Snake #7) ── */
+.start-card{position:relative;overflow:hidden;width:100%;padding:48px 24px 40px;text-align:center;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:20px;
+  box-shadow:0 20px 50px rgba(0,0,0,.35)}
+#deco-canvas{position:absolute;inset:0;width:100%;height:100%;opacity:.5;pointer-events:none}
+.start-content{position:relative;z-index:1}
+.logo{font-size:clamp(40px,10vw,68px);font-weight:900;letter-spacing:6px;
+  background:linear-gradient(90deg,#7fb2ff,#ffffff,#ffb347);-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:float 3s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.tagline{margin-top:8px;font-size:15px;color:#c9d2ee}
+
+/* ── Botón Start (Snake #8) ── */
+.btn-start{margin-top:34px;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;
+  font-family:inherit;font-size:22px;font-weight:800;letter-spacing:3px;color:#3a2600;
+  background:linear-gradient(180deg,#ffc76b,var(--accent));padding:16px 46px;border-radius:50px;
+  box-shadow:0 6px 0 var(--accent-dark),0 12px 24px rgba(0,0,0,.35);
+  transition:transform .12s,box-shadow .12s}
+.btn-start:hover{transform:translateY(-2px);box-shadow:0 8px 0 var(--accent-dark),0 16px 28px rgba(0,0,0,.4)}
+.btn-start:active{transform:translateY(5px);box-shadow:0 1px 0 var(--accent-dark),0 4px 10px rgba(0,0,0,.4)}
+.btn-start .arrow{transition:transform .2s}
+.btn-start:hover .arrow{transform:translateX(5px)}
+.press{margin-top:22px;font-size:13px;color:#9aa6cc}
+
+/* ── Escena de juego ── */
+.game-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:16px;padding:12px;
+  box-shadow:0 20px 50px rgba(0,0,0,.35)}
+#gameCanvas{display:block;border-radius:10px;max-width:100%;height:auto}
+.hint{margin-top:14px;font-size:14px;color:#c9d2ee}
+kbd{background:rgba(255,255,255,.15);border-radius:4px;padding:2px 8px;font-family:inherit}
+</style>
+</head>
+<body>
+
+<!-- ESCENA 1: INICIO -->
+<div id="start-screen" class="screen active">
+  <div class="start-card">
+    <canvas id="deco-canvas"></canvas>
+    <div class="start-content">
+      <div class="logo">SNAKE</div>
+      <div class="tagline">Prototipo v0.1</div>
+      <button class="btn-start" onclick="startGame()">START <span class="arrow">▶</span></button>
+      <div class="press">o pulsa <kbd>Enter</kbd></div>
+    </div>
+  </div>
+</div>
+
+<!-- ESCENA 2: JUEGO -->
+<div id="game-screen" class="screen">
+  <div class="game-card"><canvas id="gameCanvas"></canvas></div>
+  <div class="hint">Muévete con <kbd>↑</kbd> <kbd>↓</kbd> <kbd>←</kbd> <kbd>→</kbd> o <kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></div>
+</div>
+
+<script>
+var COLS = 28, ROWS = 22, CELL = 21;
+var W = COLS * CELL, H = ROWS * CELL;
+var SPEED = 150;
+
+/* Snake #11 — spawn point */
+var SPAWN = { x: 14, y: 11 };
+var SPAWN_LEN = 3;
+
+var DIRS = {
+  ArrowUp:{x:0,y:-1}, ArrowDown:{x:0,y:1}, ArrowLeft:{x:-1,y:0}, ArrowRight:{x:1,y:0},
+  w:{x:0,y:-1}, s:{x:0,y:1}, a:{x:-1,y:0}, d:{x:1,y:0},
+  W:{x:0,y:-1}, S:{x:0,y:1}, A:{x:-1,y:0}, D:{x:1,y:0}
+};
+
+var currentScene = 'start';
+var G = null;
+var loopTimer = null;
+
+function el(id){ return document.getElementById(id); }
+
+/* Snake #9 — Start pasa a la escena de juego */
+function showScene(name){
+  currentScene = name;
+  document.querySelectorAll('.screen').forEach(function(s){ s.classList.remove('active'); });
+  el(name + '-screen').classList.add('active');
+}
+
+function startGame(){
+  showScene('game');
+  spawnSnake();
+  draw();
+  clearTimeout(loopTimer);
+  loopTimer = setTimeout(tick, SPEED);
+}
+
+/* Snake #11 — spawn */
+function spawnSnake(){
+  var snake = [];
+  for (var i = 0; i < SPAWN_LEN; i++) snake.push({ x: SPAWN.x - i, y: SPAWN.y });
+  G = { snake: snake, dir: {x:1,y:0}, nextDir: {x:1,y:0} };
+}
+
+/* Snake #12 — movimiento continuo hacia delante */
+function tick(){
+  if (!G) return;
+  G.dir = { x: G.nextDir.x, y: G.nextDir.y };
+  var head = G.snake[0];
+  var nx = (head.x + G.dir.x + COLS) % COLS;   // bordes provisionales: teletransportan
+  var ny = (head.y + G.dir.y + ROWS) % ROWS;
+  G.snake.unshift({ x: nx, y: ny });
+  G.snake.pop();
+  draw();
+  loopTimer = setTimeout(tick, SPEED);
+}
+
+/* Snake #13 — movimiento en 4 direcciones */
+document.addEventListener('keydown', function(e){
+  if (currentScene === 'start' && e.key === 'Enter'){ startGame(); return; }
+  if (currentScene !== 'game' || !G) return;
+  var d = DIRS[e.key];
+  if (!d) return;
+  e.preventDefault();
+  if (d.x === -G.dir.x && d.y === -G.dir.y) return;
+  G.nextDir = d;
+});
+
+/* ── Dibujo del juego ── */
+var canvas = el('gameCanvas');
+canvas.width = W; canvas.height = H;
+var ctx = canvas.getContext('2d');
+
+function rr(c, x, y, w, h, r){
+  c.beginPath();
+  c.moveTo(x + r, y);
+  c.arcTo(x + w, y, x + w, y + h, r);
+  c.arcTo(x + w, y + h, x, y + h, r);
+  c.arcTo(x, y + h, x, y, r);
+  c.arcTo(x, y, x + w, y, r);
+  c.closePath();
+}
+
+function drawSnake(c, snake, dir){
+  snake.forEach(function(seg, i){
+    c.fillStyle = i === 0 ? '#2f56c4' : '#4674e9';
+    rr(c, seg.x*CELL + 1, seg.y*CELL + 1, CELL - 2, CELL - 2, 6);
+    c.fill();
+  });
+  // ojos
+  var h = snake[0];
+  var cx = h.x*CELL + CELL/2, cy = h.y*CELL + CELL/2;
+  var ex = dir.x, ey = dir.y, off = CELL*0.22, fwd = CELL*0.15;
+  [[cx + ey*off + ex*fwd, cy + ex*off + ey*fwd],
+   [cx - ey*off + ex*fwd, cy - ex*off + ey*fwd]].forEach(function(p){
+    c.fillStyle = '#fff'; c.beginPath(); c.arc(p[0], p[1], 3.2, 0, Math.PI*2); c.fill();
+    c.fillStyle = '#111'; c.beginPath(); c.arc(p[0] + ex*1, p[1] + ey*1, 1.5, 0, Math.PI*2); c.fill();
+  });
+}
+
+function draw(){
+  // tablero a cuadros
+  for (var x = 0; x < COLS; x++)
+    for (var y = 0; y < ROWS; y++){
+      ctx.fillStyle = (x + y) % 2 === 0 ? '#aad751' : '#a2d149';
+      ctx.fillRect(x*CELL, y*CELL, CELL, CELL);
+    }
+  drawSnake(ctx, G.snake, G.dir);
+}
+
+/* ── Decoración pantalla de inicio: serpiente que pasea sola (Snake #7) ── */
+(function(){
+  var dc = el('deco-canvas'), d = dc.getContext('2d');
+  var cell = 20, cols, rows, s, dir;
+  function init(){
+    dc.width = dc.offsetWidth; dc.height = dc.offsetHeight;
+    cols = Math.floor(dc.width / cell); rows = Math.floor(dc.height / cell);
+    s = []; dir = {x:1,y:0};
+    for (var i = 0; i < 6; i++) s.push({x: 3 - i, y: rows - 3});
+  }
+  init();
+  window.addEventListener('resize', init);
+  setInterval(function(){
+    if (currentScene !== 'start') return;
+    if (Math.random() < 0.18){
+      var opts = dir.x !== 0 ? [{x:0,y:-1},{x:0,y:1}] : [{x:-1,y:0},{x:1,y:0}];
+      dir = opts[Math.floor(Math.random()*2)];
+    }
+    var h = s[0];
+    s.unshift({x:(h.x + dir.x + cols) % cols, y:(h.y + dir.y + rows) % rows});
+    s.pop();
+    d.clearRect(0, 0, dc.width, dc.height);
+    s.forEach(function(seg, i){
+      d.fillStyle = i === 0 ? '#7fb2ff' : 'rgba(127,178,255,' + (0.8 - i*0.1) + ')';
+      rr(d, seg.x*cell + 2, seg.y*cell + 2, cell - 4, cell - 4, 6); d.fill();
+    });
+  }, 140);
+})();
+</script>
+</body>
+</html>
