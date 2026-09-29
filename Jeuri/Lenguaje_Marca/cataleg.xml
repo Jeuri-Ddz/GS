@@ -28,6 +28,7 @@
                     <Plataforma>SNES</Plataforma>
                 </Plataformas>
                 <Precio>35.99</Precio>
+                <!-- Valoración del juego en base a 10 -->
                 <Valoracion>9.1</Valoracion>
                 <Stock>11</Stock>
                 <Fecha>1995-03-11</Fecha>
