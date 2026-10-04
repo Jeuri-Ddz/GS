@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <!DOCTYPE EmpresaSYSTEM "Exercici1.dtd"> -->
+
+<!DOCTYPE Empresa[
+   <!ELEMENT  Empresa (Empleat)*>
+   <!ELEMENT Empleat (Cognom, Nom, NumEmpleat, Telefon, CorreuElectronic,Adreca)>
+   <!ELEMENT Cognom (#PCDATA)>
+   <!ELEMENT Nom (#PCDATA)>
+   <!ELEMENT NumEmpleat (#PCDATA)>
+   <!ELEMENT CorreuElectronic (#PCDATA)>
+   <!ELEMENT Telefon (#PCDATA)>
+
+   <!ELEMENT Adreca (Carrer, Ciutat, CP)>
+    <!ELEMENT Carrer (#PCDATA)>
+   <!ELEMENT Ciutat (#PCDATA)>
+   <!ELEMENT CP (#PCDATA)>
+
+
+]>
+
+
+<Empresa>
+  <Empleat>
+    <Cognom>Perez</Cognom>
+    <Nom>Joan</Nom>
+    <NumEmpleat>1234567890</NumEmpleat>
+    <Telefon>666 555 444</Telefon>
+    <CorreuElectronic>joanperez@gmail.com</CorreuElectronic>
+    <Adreca>
+      <Carrer>Carrer de Pau Claris, 121</Carrer>
+      <Ciutat>Barcelona</Ciutat>
+      <CP>08009</CP>
+    </Adreca>
+  </Empleat>
+</Empresa>
