@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-  <!--
-    Catálogo de SpawnCamp: tienda de videojuegos y consolas retro.
-    Autor: Jeuri 
-    Versión: 1.0
--->
+<!DOCTYPE Tienda SYSTEM "RA4_Projecte_Fase_1_cataleg_deLeon_Jeuri.dtd">
+
     <Tienda estilo="retro">
         <Nombre>SpawnCamp</Nombre>
-        <Descripcion>
+        <Descripcion_Tienda>
               <![CDATA[ SpawnCamp es el refugio definitivo para los verdaderos amantes del píxel.
                 Nos especializamos en la compra, venta & restauración de consolas clásicas,
                 cartuchos descatalogados y accesorios retro desde la era de los 8 y 16 bits hasta los años 2000.
                 Desde joyas por < 40 € hasta piezas de coleccionista por > 90 €, hay algo para cada bolsillo.
                 Vive la "edad de oro" del videojuego con nosotros: preserva su historia y revive la nostalgia en su estado más puro.]]>
-        </Descripcion>
+        </Descripcion_Tienda>
           <!-- Moneda en la que están expresados todos los precios -->
-        <Monedas moneda="EUR"/>
+        <Monedas Moneda="&eur;"/>
         
          <!-- Formato de fechas: AAAA-MM-DD -->
         <Catalogo Fecha_actualizacion="2025-09-08">
@@ -65,7 +62,6 @@
                 <Valoracion>9.6</Valoracion>
                 <Stock>8</Stock>
                 <Fecha>1990-11-21</Fecha>
-                <Descripcion>El debut de Yoshi y una obra maestra atemporal de los plataformas en 16 bits. Cartucho suelto revisado con contactos limpios.</Descripcion>
             </Juego>
         
             <Juego id="RET-004">
@@ -114,7 +110,6 @@
                 <Valoracion>9.3</Valoracion>
                 <Stock>12</Stock>
                 <Fecha>1999-01-31</Fecha>
-                <Descripcion>El inicio de la pesadilla psicológica envuelta en niebla creada por el Team Silent. Unidad de coleccionista en excelente conservación.</Descripcion>
             </Juego>
 
             <Juego id="RET-007">
