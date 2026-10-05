@@ -14,7 +14,7 @@
 
 <!ELEMENT Juego (Titulo, Generos, Plataformas, Precio, Valoracion, Stock, Fecha, Descripcion?)>
 <!ATTLIST Juego
-    id CDATA #REQUIRED
+    id ID #REQUIRED
     comentario CDATA #IMPLIED>
 
 <!ELEMENT Titulo (#PCDATA)>
