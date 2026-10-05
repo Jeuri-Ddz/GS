@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Tienda SYSTEM "RA4_Projecte_Fase_1_cataleg_deLeon_Jeuri.dtd">
 
-    <Tienda estilo="retro">
+<!--
+    Catálogo de SpawnCamp: tienda de videojuegos y consolas retro.
+    Autor: Jeuri
+    Versión: 1.0
+-->
+<Tienda estilo="retro">
         <Nombre>SpawnCamp</Nombre>
         <Descripcion_Tienda>
               <![CDATA[ SpawnCamp es el refugio definitivo para los verdaderos amantes del píxel.
